@@ -21,13 +21,13 @@ namespace Bakery.Core.Repositories
             return await _context.Set<T>().ToListAsync().ConfigureAwait(false);
         }
 
-        public async Task Create(T order)
+        public async Task CreateAsync(T order)
         {
             await _context.Set<T>().AddAsync(order).ConfigureAwait(false);
             await _context.SaveChangesAsync().ConfigureAwait(false);
         }
 
-        public async Task Update(T order)
+        public async Task UpdateAsync(T order)
         {
             _context.Set<T>().Update(order);
             await _context.SaveChangesAsync().ConfigureAwait(false);
@@ -36,6 +36,12 @@ namespace Bakery.Core.Repositories
         public async Task<IEnumerable<T>> GetByPropertiesAsync(Expression<Func<T, bool>> properties)
         {
             return await _context.Set<T>().Where(properties).ToListAsync();
+        }
+
+        public async Task DeleteAsync(T item)
+        {
+            _context.Set<T>().Remove(item);
+            await _context.SaveChangesAsync().ConfigureAwait(false);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Bakery.Api.Services;
+using Bakery.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -10,13 +11,14 @@ using Microsoft.Extensions.Logging;
 namespace Bakery.Api.Controllers
 {
     [ApiController]
-    [Route("orders")]
-    public class OrdersController : ControllerBase
+    //[Authorize]
+    [Route("products")]
+    public class ProductsController : ControllerBase
     {
-        private readonly ILogger<OrdersController> _logger;
-        private readonly IOrdersService _service;
+        private readonly ILogger<ProductsController> _logger;
+        private readonly IProductsService _service;
 
-        public OrdersController(ILogger<OrdersController> logger, IOrdersService service)
+        public ProductsController(ILogger<ProductsController> logger, IProductsService service)
         {
             (_logger, _service) = (logger, service);
         }
@@ -35,18 +37,12 @@ namespace Bakery.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet]
-        [Route("/all/{phoneNumber}")]
-        public async Task<IActionResult> GetByPhoneNumber([FromRoute] string phoneNumber)
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] Product product)
         {
-            var result = await _service.GetByPhoneNumber(phoneNumber);
+            await _service.UpdateAsync(product).ConfigureAwait(false);
 
-            if (!result?.Any() ?? false)
-            {
-                return NoContent();
-            }
-
-            return Ok(result);
+            return NoContent();
         }
     }
 }

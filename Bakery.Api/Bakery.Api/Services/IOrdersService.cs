@@ -9,6 +9,6 @@ namespace Bakery.Api.Services
     public interface IOrdersService
     {
         Task<IEnumerable<Order>> GetByPhoneNumber(string phoneNumber);
-        Task<IEnumerable<Order>> GetAll();
+        Task<IEnumerable<Order>> GetAllAsync();
     }
 }

@@ -20,24 +20,24 @@ namespace Bakery.Api.Services
             return await _repository.GetByPropertiesAsync(o => o.PhoneNumber == phoneNumber).ConfigureAwait(false);
         }
 
-        public async Task<IEnumerable<Order>> GetAll()
+        public async Task<IEnumerable<Order>> GetAllAsync()
         {
             return await _repository.GetAllAsync().ConfigureAwait(false);
         }
 
-        public async Task Update(Order order)
+        public async Task UpdateAsync(Order order)
         {
-            await _repository.Update(order).ConfigureAwait(false);
+            await _repository.UpdateAsync(order).ConfigureAwait(false);
         }
-        public async Task Create(Order order)
+        public async Task CreateAsync(Order order)
         {
-            await _repository.Create(order).ConfigureAwait(false);
+            await _repository.CreateAsync(order).ConfigureAwait(false);
         }
 
-        public async Task Deactivate(Order order)
+        public async Task DeactivateAsync(Order order)
         {
             order.IsActive = false;
-            await _repository.Update(order).ConfigureAwait(false);
+            await _repository.UpdateAsync(order).ConfigureAwait(false);
         }
     }
 }

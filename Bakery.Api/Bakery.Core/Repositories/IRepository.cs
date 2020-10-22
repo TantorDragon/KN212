@@ -11,7 +11,8 @@ namespace Bakery.Core.Repositories
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<IEnumerable<T>> GetByPropertiesAsync(Expression<Func<T, bool>> filters);
-        Task Create(T item);
-        Task Update(T item);
+        Task CreateAsync(T item);
+        Task UpdateAsync(T item);
+        Task DeleteAsync(T item);
     }
 }
