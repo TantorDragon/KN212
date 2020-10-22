@@ -6,15 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <title>Sign in</title>
+  <script src="login.js"></script>
+  <script src="path/from/html/page/to/jquery.min.js"></script>
 </head>
 
 <body>
   <div class="main">
     <p class="sign" align="center">Sign in</p>
     <form class="form1">
-      <input class="un " type="text" align="center" placeholder="Username">
-      <input class="pass" type="password" align="center" placeholder="Password">
-      <a class="submit" align="center">Sign in</a>      
+      <input id="un" class="un" type="text" align="center" placeholder="Username">
+      <input id="pass" class="pass" type="password" align="center" placeholder="Password">
+      <button class="submit" onclick="login()" align="center">Sign in</button>      
                
   </div>
      

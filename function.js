@@ -37,12 +37,3 @@
 	});
  
 })(document)
-(function()
-{
-    var a = new XMLHttpRequest();
-    a.open('GET',"http://localhost:5000");
-    a.responseType = 'JSON'
-    a.send();
-    var result = a.result;
-    result.code
-})

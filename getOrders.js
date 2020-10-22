@@ -15,6 +15,7 @@ function getOrders(document)
         trNode.appendChild(createTdNode(result[i].Email));
         trNode.appendChild(createTdNode(result[i].OrderType));
         trNode.appendChild(createTdNode(result[i].Description));
+        trNode.appendChild(createTdNode(result[i].DateCreated));
         document.getElementById("tableBody").appendChild()
     }
 }
