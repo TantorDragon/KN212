@@ -1,9 +1,9 @@
 function getOrders(document)
 {
-    var url = "http://localhost:5000/orders";
-    var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+    var url = "https://localhost:5001/orders";
     var request = new XMLHttpRequest();
     request.open("GET", url, true);
+    request.setRequestHeader("Access-Control-Allow-Origin", "*")
     request.send();
     var result = JSON.parse(request.responseText);
     document.getElementById("tableBody");

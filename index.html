@@ -239,9 +239,9 @@ integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4
         <div class="container">
             <form id="form__inner" action="#" onsubmit="CheckForm(); return false">
                 <div class="input-fields">
-                    <input type="text" name="fname" class="input" placeholder="Ім'я">
-                    <input type="email" name="email" class="input" placeholder="E-mail">
-                    <input type="text" name="user-phone" class="input" placeholder="Номер телефону">
+                    <input id="clientName" type="text" name="fname" class="input" placeholder="Ім'я">
+                    <input id="clientEmail" type="email" name="email" class="input" placeholder="E-mail">
+                    <input id="clientNumber" type="text" name="user-phone" class="input" placeholder="Номер телефону">
                     <div class="checkboxes">
                         <div class="box"><input type="checkbox" name="lan1" value="cake" checked><label>Торт</label></div>
                         <div class="box"><input type="checkbox" name="lan2" value="home-cake" ><label>Пляцок</label></div>
@@ -253,8 +253,8 @@ integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4
                     </div>
                 </div>
                 <div class="msg">
-                    <textarea placeholder="Повідомлення"></textarea>
-                    <input class="btn btn--orange form--btn" type="submit" value="Замовити" />
+                    <textarea id="orderDescription" placeholder="Повідомлення"></textarea>
+                    <input class="btn btn--orange form--btn" type="submit" value="Замовити" onclick="createOrder()"/>
                 </div>
             </form>
         </div>

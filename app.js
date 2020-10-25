@@ -71,3 +71,33 @@ function IsLetter(value){
 function IsNumber(value){
     return !isNaN(value);
 }
+
+function createOrder()
+{
+    var name = document.getElementById("clientName").value;
+    var email = document.getElementById("clientEmail").value;
+    var phoneNumber = document.getElementById("clientNumber").value;
+    var description = document.getElementById("orderDescription").value;
+    var url = "https://localhost:5000/orders";
+    var request = new XMLHttpRequest();
+    request.open("POST", url, true);
+    request.setRequestHeader("Access-Control-Allow-Origin", "*")
+    request.send(JSON.stringify(
+        {
+            DateCreated = new Date().toLocaleString().replace(",",""),
+            PhoneNumber = phoneNumber,
+            Email = email,
+            OrderType = orderType,
+            Description = description,
+            ClientName = name,
+            IsActive = true
+        }));
+    if(request.status == 201)
+    {
+        //successfull
+    }
+    else
+    {
+        //something went wrong
+    }
+}
