@@ -12,7 +12,13 @@ namespace Bakery.Core.DbConnection.ModelConfigurations
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.Property(b => b.ID).ValueGeneratedOnAdd();
-            builder.HasData(new User());
+            builder.HasData(
+                new User 
+                {
+                    Login="MainAdmin",
+                    Password="MyBakeryCabinet"
+                }
+                );
         }
     }
 }

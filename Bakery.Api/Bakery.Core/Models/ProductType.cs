@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Bakery.Core.Models
 {
-    public enum OrderType
+    public enum ProductType
     {
         [EnumMember(Value ="Торт")]
         Cake,

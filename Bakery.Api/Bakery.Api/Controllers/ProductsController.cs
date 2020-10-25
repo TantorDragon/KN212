@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 namespace Bakery.Api.Controllers
 {
     [ApiController]
-    //[Authorize]
+    [Authorize]
     [Route("products")]
     public class ProductsController : ControllerBase
     {

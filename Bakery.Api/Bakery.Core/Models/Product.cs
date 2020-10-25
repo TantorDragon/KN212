@@ -6,6 +6,7 @@ namespace Bakery.Core.Models
 {
     public class Product : Item
     {
+        public ProductType Type { get; set; }
         public string Name { get; set; }
 
         public string Description { get; set; }

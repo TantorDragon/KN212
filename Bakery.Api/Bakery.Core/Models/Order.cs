@@ -11,10 +11,12 @@ namespace Bakery.Core.Models
 
         public string PhoneNumber { get; set; }
 
-        public OrderType OrderTypes { get; set; }
+        public ProductType OrderType { get; set; }
 
         public string Email { get; set; }
 
         public bool IsActive { get; set; }
+
+        public string ClientName { get; set; }
     }
 }

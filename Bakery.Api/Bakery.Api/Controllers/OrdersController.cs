@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Bakery.Api.Services;
+using Bakery.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -22,6 +23,7 @@ namespace Bakery.Api.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("/all")]
         public async Task<IActionResult> GetAll()
         {
@@ -36,6 +38,7 @@ namespace Bakery.Api.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("/all/{phoneNumber}")]
         public async Task<IActionResult> GetByPhoneNumber([FromRoute] string phoneNumber)
         {
@@ -47,6 +50,18 @@ namespace Bakery.Api.Controllers
             }
 
             return Ok(result);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> CreateOrder([FromBody] Order order)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            await _service.CreateAsync(order).ConfigureAwait(false);
+
+            return CreatedAtAction("CreateOrder", order);
         }
     }
 }
