@@ -13,18 +13,20 @@ namespace Bakery.Core.DbConnection.ModelConfigurations
         {
             builder.Property(b => b.ID).ValueGeneratedOnAdd();
             builder.HasData(
-                new Order 
-                { 
+                new Order
+                {
+                    ID = 1,
                     DateCreated = DateTime.Parse("23/10/2020"),
                     ClientName = "Оксана",
                     PhoneNumber = "380992847194",
-                    Email="oks.karpa12@gmail.com",
+                    Email = "oks.karpa12@gmail.com",
                     OrderType = ProductType.Cupcakes,
                     Description = "Добрий день! Я б хотіла замовити капкейки на Хеловін у дитячий садок. Потрібно 18 штук.",
                     IsActive = true
                 },
-                new Order 
+                new Order
                 {
+                    ID = 2,
                     DateCreated = DateTime.Parse("24/10/2020"),
                     ClientName = "Олег",
                     PhoneNumber = "380979205389",
@@ -35,6 +37,7 @@ namespace Bakery.Core.DbConnection.ModelConfigurations
                 },
                 new Order
                 {
+                    ID = 3,
                     DateCreated = DateTime.Parse("24/10/2020"),
                     ClientName = "Юлія",
                     PhoneNumber = "380956192064",

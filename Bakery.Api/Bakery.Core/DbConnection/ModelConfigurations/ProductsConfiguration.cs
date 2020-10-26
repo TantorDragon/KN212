@@ -12,6 +12,7 @@ namespace Bakery.Core.DbConnection.ModelConfigurations
             builder.HasData(
                 new Product
                 {
+                    ID = 1,
                     Type = ProductType.Marshmallow,
                     Name = "Яблучний зефір",
                     Description = "Зефір з натуральних продуктів з мінімальним вмістом цукру",
@@ -19,6 +20,7 @@ namespace Bakery.Core.DbConnection.ModelConfigurations
                 },
                 new Product
                 {
+                    ID = 2,
                     Type = ProductType.Cupcakes,
                     Name = "Капкейки з шоколадом і лимоном",
                     Description = "Капкейки з лимонним присмаком та шматком шоколаду всередині",
@@ -26,6 +28,7 @@ namespace Bakery.Core.DbConnection.ModelConfigurations
                 },
                 new Product
                 {
+                    ID = 3,
                     Type = ProductType.Cake,
                     Name = "Орео",
                     Description = "Торт з шоколадними коржами та сирною прослойкою",
@@ -33,6 +36,7 @@ namespace Bakery.Core.DbConnection.ModelConfigurations
                 },
                 new Product
                 {
+                    ID = 4,
                     Type = ProductType.Homecake,
                     Name = "Фантазія",
                     Description = "Пляцок з кольоровими коржами, з кислинкою",

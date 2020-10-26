@@ -15,6 +15,7 @@ namespace Bakery.Core.DbConnection.ModelConfigurations
             builder.HasData(
                 new User 
                 {
+                    ID = 1,
                     Login="MainAdmin",
                     Password="MyBakeryCabinet"
                 }

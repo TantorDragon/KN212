@@ -1,4 +1,5 @@
 ﻿using Bakery.Api.Services;
+using Bakery.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -18,13 +19,13 @@ namespace Bakery.Api.Controllers
         }
 
         [HttpPost] 
-        [Route("/login")]
-        public async Task<IActionResult> Login([FromBody] string password, [FromBody] string login)
+        [Route("login")]
+        public async Task<IActionResult> Login([FromBody] User user)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var tokenString = await _authService.GetToken(login, password);
+            var tokenString = await _authService.GetToken(user.Login, user.Password);
 
             if (tokenString is null)
             {

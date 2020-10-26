@@ -34,7 +34,8 @@ namespace Bakery.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton(Configuration.GetSection("JwtOptions").Get<JwtOptions>());
+            var jwtOptions = Configuration.GetSection("JwtOptions").Get<JwtOptions>();
+            services.AddSingleton(jwtOptions);
             services.AddDbContext<BakeryContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("Bakery")));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -45,13 +46,11 @@ namespace Bakery.Api
                         ValidateIssuer = true,
                         ValidateAudience = true,
                         ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
-
-                        ValidIssuer = Configuration["JwtOptions:ValidIssuer"],
-                        ValidAudience = Configuration["JwtOptions:ValidAudience"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtOptions:IssuerSigningKey"]))
+                        ValidIssuer = jwtOptions.Issuer,
+                        ValidAudience = jwtOptions.Audience
                     };
                 });
+            services.AddScoped<DbContext, BakeryContext>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IOrdersService, OrdersService>();
@@ -76,6 +75,16 @@ namespace Bakery.Api
             {
                 endpoints.MapControllers();
             });
+
+            EnsureDbCreated(app);
+        }
+
+        private static void EnsureDbCreated(IApplicationBuilder app)
+        {
+            var serviceScopeFactory = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>();
+            using var serviceScope = serviceScopeFactory.CreateScope();
+            var dbContext = serviceScope.ServiceProvider.GetService<BakeryContext>();
+            dbContext.Database.EnsureCreated();
         }
     }
 }

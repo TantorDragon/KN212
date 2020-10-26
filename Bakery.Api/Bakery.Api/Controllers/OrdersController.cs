@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 namespace Bakery.Api.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("orders")]
     public class OrdersController : ControllerBase
     {
@@ -23,8 +24,7 @@ namespace Bakery.Api.Controllers
         }
 
         [HttpGet]
-        [Authorize]
-        [Route("/all")]
+        [Route("all")]
         public async Task<IActionResult> GetAll()
         {
             var result = await _service.GetAllAsync();
@@ -38,8 +38,7 @@ namespace Bakery.Api.Controllers
         }
 
         [HttpGet]
-        [Authorize]
-        [Route("/all/{phoneNumber}")]
+        [Route("all/{phoneNumber}")]
         public async Task<IActionResult> GetByPhoneNumber([FromRoute] string phoneNumber)
         {
             var result = await _service.GetByPhoneNumber(phoneNumber);

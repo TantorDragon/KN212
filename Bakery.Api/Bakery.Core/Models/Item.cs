@@ -6,6 +6,6 @@ namespace Bakery.Core.Models
 {
     public abstract class Item
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
     }
 }
