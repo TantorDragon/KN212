@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace Bakery.Core.DbConnection.ModelConfigurations
@@ -16,7 +17,7 @@ namespace Bakery.Core.DbConnection.ModelConfigurations
                 new Order
                 {
                     ID = 1,
-                    DateCreated = DateTime.Parse("23/10/2020"),
+                    DateCreated = DateTime.ParseExact("23.10.2020", "dd.MM.yyyy", CultureInfo.InvariantCulture),
                     ClientName = "Оксана",
                     PhoneNumber = "380992847194",
                     Email = "oks.karpa12@gmail.com",
@@ -27,7 +28,7 @@ namespace Bakery.Core.DbConnection.ModelConfigurations
                 new Order
                 {
                     ID = 2,
-                    DateCreated = DateTime.Parse("24/10/2020"),
+                    DateCreated = DateTime.ParseExact("24.10.2020", "dd.MM.yyyy", CultureInfo.InvariantCulture),
                     ClientName = "Олег",
                     PhoneNumber = "380979205389",
                     Email = "markiv.o.p@gmail.com",
@@ -38,7 +39,7 @@ namespace Bakery.Core.DbConnection.ModelConfigurations
                 new Order
                 {
                     ID = 3,
-                    DateCreated = DateTime.Parse("24/10/2020"),
+                    DateCreated = DateTime.ParseExact("25.10.2020", "dd.MM.yyyy", CultureInfo.InvariantCulture),
                     ClientName = "Юлія",
                     PhoneNumber = "380956192064",
                     Email = "little.me83@gmail.com",

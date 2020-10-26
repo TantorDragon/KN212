@@ -47,7 +47,9 @@ namespace Bakery.Api
                         ValidateAudience = true,
                         ValidateLifetime = true,
                         ValidIssuer = jwtOptions.Issuer,
-                        ValidAudience = jwtOptions.Audience
+                        ValidAudience = jwtOptions.Audience,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = jwtOptions.SecretKey
                     };
                 });
             services.AddScoped<DbContext, BakeryContext>();
@@ -55,6 +57,11 @@ namespace Bakery.Api
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IOrdersService, OrdersService>();
             services.AddScoped<IProductsService, ProductsService>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAnyOrigin",
+                    builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,6 +77,7 @@ namespace Bakery.Api
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseEndpoints(endpoints =>
             {

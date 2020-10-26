@@ -2,3 +2,5 @@ debug.log
 Bakery.Api/.vs/
 Bakery.Api/Bakery.Api/obj/
 Bakery.Api/Bakery.Core/obj/
+Bakery.Api/Bakery.Api/bin/
+Bakery.Api/Bakery.Core/bin/

@@ -3,11 +3,13 @@ using Bakery.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 
 namespace Bakery.Api.Controllers
 {
     [ApiController]
     [AllowAnonymous]
+    [EnableCors("AllowAnyOrigin")]
     [Route("auth")]
     public class AuthController : ControllerBase
     {

@@ -1,5 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Bakery.Core.Converters;
+using System;
+using System.Text.Json.Serialization;
 
 namespace Bakery.Core.Models
 {
@@ -11,6 +12,7 @@ namespace Bakery.Core.Models
 
         public string PhoneNumber { get; set; }
 
+        [JsonConverter(typeof(ProductTypeConverter))]
         public ProductType OrderType { get; set; }
 
         public string Email { get; set; }

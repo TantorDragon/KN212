@@ -33,11 +33,5 @@ namespace Bakery.Api.Services
         {
             await _repository.CreateAsync(order).ConfigureAwait(false);
         }
-
-        public async Task DeactivateAsync(Order order)
-        {
-            order.IsActive = false;
-            await _repository.UpdateAsync(order).ConfigureAwait(false);
-        }
     }
 }

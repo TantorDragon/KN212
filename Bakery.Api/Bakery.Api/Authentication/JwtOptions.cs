@@ -1,4 +1,7 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using System;
+using System.Security.Cryptography;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Bakery.Api.Authentication
 {
@@ -10,9 +13,17 @@ namespace Bakery.Api.Authentication
 
         public int ExpireMinutes { get; set; }
 
-        public SymmetricSecurityKey SecretKey { get; set; } = 
-            new SymmetricSecurityKey(new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8 });
+        public SymmetricSecurityKey SecretKey { get; set; } = GenerateKey();
 
         public string SecurityAlgorithm { get; set; }
+
+        private static SymmetricSecurityKey GenerateKey()
+        {
+            var key = new byte[64];
+            using var generator = RandomNumberGenerator.Create();
+            generator.GetBytes(key);
+            var base64Secret = Convert.ToBase64String(key).TrimEnd('=').Replace('+', '-').Replace('/', '_');
+            return new SymmetricSecurityKey(Encoding.ASCII.GetBytes(base64Secret));
+        }
     }
 }

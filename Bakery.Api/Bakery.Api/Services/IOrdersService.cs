@@ -15,7 +15,5 @@ namespace Bakery.Api.Services
         Task UpdateAsync(Order order);
 
         Task CreateAsync(Order order);
-
-        Task DeactivateAsync(Order order);
     }
 }
