@@ -23,3 +23,23 @@ thead {
     color: #fff;
     background: #e7843c;
 }
+.isActiveButton{
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to right, #da642f, #f48a3e);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 13px;
+}
+.isActiveButton.nonActive{
+    color: #000;
+    background: linear-gradient(to right, #a5a5a5, #c4c4c4);
+}
+.isActiveButton:focus,
+.isActiveButton:active {
+  outline: none;
+}

@@ -61,10 +61,12 @@ function deactivateOrder(element) {
       if(element.innerText == "true")
       {
         element.innerText = "false";
+        element.classList.add("nonActive");
       }
       else
       {
-        element.innerText = "true"
+        element.innerText = "true";
+        element.classList.remove("nonActive");
       }
     }
   }
