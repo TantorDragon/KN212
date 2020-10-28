@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="ua">
+
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Caveat:400,700|Comfortaa:500,600,700|Open+Sans:400,600,700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Caveat:400,700|Comfortaa:500,600,700|Open+Sans:400,600,700&display=swap&subset=cyrillic,cyrillic-ext"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
-integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Домашня випічка</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="alertifyjs/css/alertify.min.css" />
+    <script src="alertifyjs/alertify.min.js"></script>
+    <link rel="stylesheet" href="alertifyjs/css/themes/default.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
     <header class="header" id="header">
         <div class="container">
@@ -31,11 +40,12 @@ integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4
                     <li><a class="nav__link" href="#testimonials">Відгуки</a></li>
                     <li><a class="nav__link" href="#price">Прайс</a></li>
                     <li><a class="nav__link" href="#form">Замовити</a></li>
-                    <li class="theme"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox" class="label">
-                        <i class="fas fa-moon"></i>
-                        <i class="fas fa-sun"></i>
-                        <div class="ball"></div>
-                    </label></li>
+                    <li class="theme"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox"
+                            class="label">
+                            <i class="fas fa-moon"></i>
+                            <i class="fas fa-sun"></i>
+                            <div class="ball"></div>
+                        </label></li>
                 </ul>
                 <button class="burger" type="button">
                     <span class="burger__item">Menu</span>
@@ -47,7 +57,7 @@ integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4
         <div class="container">
             <div class="intro__inner">
                 <h2 class="intro__subtitle">
-                Lorem Ipsum is simply dummy text.</h2>
+                    Lorem Ipsum is simply dummy text.</h2>
                 <h1 class="intro__title">Вітаємо у домашній пекарні!</h1>
                 <a class="btn btn--orange" href="#form">Оформити замовлення</a>
                 <a class="btn btn--white" href="#history">Дізнатись більше</a>
@@ -61,19 +71,22 @@ integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4
                     <img class="costumers__icon" src="img/icon/icon-1.png" alt="present">
                     <h4 class="costumers__title">У подарунок</h4>
                     <hr class="costumers__hr">
-                    <p class="costumers__text">Lorem Ipsum is simply dummy text of the printing and typesetting let. Lorem Ipsum has been the industry.</p>
+                    <p class="costumers__text">Lorem Ipsum is simply dummy text of the printing and typesetting let.
+                        Lorem Ipsum has been the industry.</p>
                 </div>
                 <div class="costumers__item">
                     <img class="costumers__icon" src="img/icon/icon-2.png" alt="party">
                     <h4 class="costumers__title">На свято</h4>
                     <hr class="costumers__hr">
-                    <p class="costumers__text">Lorem Ipsum is simply dummy text of the printing and typesetting let. Lorem Ipsum has been the industry.</p>
+                    <p class="costumers__text">Lorem Ipsum is simply dummy text of the printing and typesetting let.
+                        Lorem Ipsum has been the industry.</p>
                 </div>
                 <div class="costumers__item">
                     <img class="costumers__icon" src="img/icon/icon-3.png" alt="party">
                     <h4 class="costumers__title">Просто поїсти</h4>
                     <hr class="costumers__hr">
-                    <p class="costumers__text">Lorem Ipsum is simply dummy text of the printing and typesetting let. Lorem Ipsum has been the industry.</p>
+                    <p class="costumers__text">Lorem Ipsum is simply dummy text of the printing and typesetting let.
+                        Lorem Ipsum has been the industry.</p>
                 </div>
             </div>
         </div>
@@ -86,8 +99,13 @@ integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4
                 </div>
                 <div class="history__info">
                     <h3 class="history__title">Про нас</h3>
-                    <p class="history__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ip sum has been the industry's standard dummy text ever since the 1500s, when an unk- nown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <p class="history__text">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p class="history__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ip sum has been the industry's standard dummy text ever since the 1500s, when an unk- nown
+                        printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p class="history__text">It has survived not only five centuries, but also the leap into electronic
+                        typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+                        of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                        software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                     <a class="btn btn--orange btn--history" href="#works">Переглянути галерею</a>
                 </div>
             </div>
@@ -100,15 +118,18 @@ integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4
                     <h2 class="services__title">Чому саме ми</h2>
                     <div class="services__item">
                         <h3 class="services__subtitle">Корисно</h3>
-                        <p class="services__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.  Lorem Ip sum has been the industry's standard dummy text ever.</p>
+                        <p class="services__text">Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry. Lorem Ip sum has been the industry's standard dummy text ever.</p>
                     </div>
                     <div class="services__item">
                         <h3 class="services__subtitle">Бюджетно</h3>
-                        <p class="services__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        <p class="services__text">Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry.</p>
                     </div>
                     <div class="services__item">
                         <h3 class="services__subtitle">З любов'ю</h3>
-                        <p class="services__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.  Lorem Ip sum has been the industry's standard dummy text ever.</p>
+                        <p class="services__text">Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry. Lorem Ip sum has been the industry's standard dummy text ever.</p>
                     </div>
                 </div>
                 <div class="services__photo">
@@ -122,14 +143,17 @@ integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4
             <img class="testimonials__img" src="img/icon/icon-4.png" alt="testimonials">
             <hr class="testimonials__hr">
             <div class="testimonials__item">
-                <p class="testimonials__text">"It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."</p>
+                <p class="testimonials__text">"It has survived not only five centuries, but also the leap into
+                    electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing software like Aldus PageMaker including versions of Lorem Ipsum."</p>
                 <h4 class="testimonials__author">Name</h4>
             </div>
         </div>
     </div>
     <div class="works" id="works">
         <div class="works__item">
-           <img class="works__photo" src="img/works/work-1.jpg" alt="work-1">
+            <img class="works__photo" src="img/works/work-1.jpg" alt="work-1">
             <div class="works__content">
                 <div class="works__title">Назва смаколика</div>
                 <div class="works__text">Інгредієнт 1, інгредієнт 2, інгредієнт 3</div>
@@ -242,19 +266,19 @@ integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4
                     <input id="clientName" type="text" name="fname" class="input" placeholder="Ім'я">
                     <input id="clientEmail" type="email" name="email" class="input" placeholder="E-mail">
                     <input id="clientNumber" type="text" name="user-phone" class="input" placeholder="Номер телефону">
-                    <div class="checkboxes">
-                        <div class="box"><input type="checkbox" name="lan1" value="cake" checked><label>Торт</label></div>
-                        <div class="box"><input type="checkbox" name="lan2" value="home-cake" ><label>Пляцок</label></div>
-                        <div class="box"><input type="checkbox" name="lan3" value="marshmallow" ><label>Зефір</label></div>
-                        <div class="box"><input type="checkbox" name="lan4" value="cookies" ><label>Печиво</label></div>
-                        <div class="box"><input type="checkbox" name="lan5" value="cupcakes" ><label>Капкейки</label></div>
-                        <div class="box"><input type="checkbox" name="lan6" value="muffins" ><label>Маффіни</label></div>
-                        <div class="box"><input type="checkbox" name="lan7" value="other"><label>Інші десерти</label></div>
+                    <div id="checkboxes" class="checkboxes">
+                        <div class="box"><input type="checkbox" name="lan1" value="Торт" onclick="resetAll(this)" checked><label>Торт</label></div>
+                        <div class="box"><input type="checkbox" name="lan2" value="Пляцок" onclick="resetAll(this)"><label>Пляцок</label></div>
+                        <div class="box"><input type="checkbox" name="lan3" value="Зефір" onclick="resetAll(this)"><label>Зефір</label></div>
+                        <div class="box"><input type="checkbox" name="lan4" value="Печиво" onclick="resetAll(this)"><label>Печиво</label></div>
+                        <div class="box"><input type="checkbox" name="lan5" value="Капкейки" onclick="resetAll(this)"><label>Капкейки</label></div>
+                        <div class="box"><input type="checkbox" name="lan6" value="Маффіни" onclick="resetAll(this)"><label>Маффіни</label></div>
+                        <div class="box"><input type="checkbox" name="lan7" value="Інша випічка" onclick="resetAll(this)"><label>Інші десерти</label></div>
                     </div>
                 </div>
                 <div class="msg">
                     <textarea id="orderDescription" placeholder="Повідомлення"></textarea>
-                    <input class="btn btn--orange form--btn" type="submit" value="Замовити" onclick="createOrder()"/>
+                    <input class="btn btn--orange form--btn" type="submit" value="Замовити" onclick="createOrder()" />
                 </div>
             </form>
         </div>
@@ -274,7 +298,7 @@ integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4
             </div>
         </div>
     </footer>
-    
+
     <script src="app.js"></script>
     <script src="event.js"></script>
     <script src="theme.js"></script>

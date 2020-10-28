@@ -10,7 +10,6 @@
   request.onload = function () {
     var result = JSON.parse(request.responseText);
     document.getElementById("tableBody");
-    debugger
     var i;
     for (i = 0; i < result.length; i++) {
       var trNode = document.createElement("tr");
@@ -21,11 +20,10 @@
       trNode.appendChild(createTdNode(result[i].orderType));
       trNode.appendChild(createTdNode(result[i].description));
       trNode.appendChild(createTdNode(formatDate(result[i].dateCreated)));
-      trNode.appendChild(createCheckBoxNode(result[i].isActive));
+      trNode.appendChild(createTdWithOnClick(result[i].isActive));
       document.getElementById("tableBody").appendChild(trNode);
     }
   }
-  debugger
 })()
 
 function createTdNode(data) {
@@ -34,19 +32,22 @@ function createTdNode(data) {
   return td;
 }
 
-function createCheckBoxNode(data) {
-  var checkBox = document.createElement("input");
-  checkBox.type = "checkbox";
-  checkBox.checked = data;
-  checkBox.onclick = deactivateOrder(this);
+function createTdWithOnClick(data) {
+  var td = document.createElement("td");
+  var button = document.createElement("button");
+  button.onclick = function(){ deactivateOrder(this) };
+  button.innerText = data;
+  button.className = "isActiveButton";
+  td.appendChild(button);
+  return td;
 }
 
 function deactivateOrder(element) {
   var order = getOrderFromHTML(element);
-  order.isActive = !order.isActive;
-  var url = "https://localhost:5001/orders/all";
+  order.isActive = order.isActive=="true" ? false : true;
+  var url = "https://localhost:5001/orders";
   var request = new XMLHttpRequest();
-  request.open("GET", url);
+  request.open("PUT", url);
   var jwtoken = getCookie("token");
   request.setRequestHeader("Content-type", "application/json");
   request.setRequestHeader('Authorization', 'Bearer ' + jwtoken);
@@ -54,15 +55,23 @@ function deactivateOrder(element) {
   request.send(JSON.stringify(order));
   request.onload = function () {
     if (request.status != 204) {
-      alert(request.status + ': ' + request.statusText);
+      alertify.alert("Cannot update order.");
     } else {
-      element.checked = !element.checked;
+      alertify.success('Success!');
+      if(element.innerText == "true")
+      {
+        element.innerText = "false";
+      }
+      else
+      {
+        element.innerText = "true"
+      }
     }
   }
 }
 
 function getOrderFromHTML(element) {
-  var nodes = element.parentNode.children;
+  var nodes = element.parentNode.parentNode.children;
   var id = nodes[0].innerHTML;
   var clientName = nodes[1].innerHTML;
   var phoneNumber = nodes[2].innerHTML;
@@ -70,16 +79,16 @@ function getOrderFromHTML(element) {
   var orderType = nodes[4].innerHTML;
   var description = nodes[5].innerHTML;
   var dateCreated = nodes[6].innerHTML;
-  var isActive = nodes[7].checked;
+  var isActive = nodes[7].innerText;
 
-  return new {
-    id: id,
+  return {
+    id: parseInt(id),
     clientName: clientName,
     phoneNumber: phoneNumber,
     email: email,
     orderType: orderType,
     description: description,
-    dateCreated: dateCreated,
+    dateCreated: dateCreated + "T00:00:00",
     isActive: isActive
   };
 }
@@ -111,5 +120,5 @@ function formatDate(date) {
   if (day.length < 2)
     day = '0' + day;
 
-  return [day, month, year].join('.');
+  return [year, month, day].join('-');
 }
