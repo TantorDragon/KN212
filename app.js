@@ -18,7 +18,9 @@ $(function () {
 function CheckForm() {
     if (CheckFirstName() && CheckMail() && CheckNumber()) {
         alertify.success("Дякуємо за замовлення! Зв'яжемось з вами найближчим часом :)");
+        return true;
     }
+    return false;
 }
 
 function CheckFirstName() {
@@ -31,9 +33,10 @@ function CheckFirstName() {
 }
 
 function CheckNumber() {
+    var regex = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){12}(\s*)?$/;
     let numberValue = document.forms["form__inner"]["user-phone"].value;
-    if (!IsNumber(numberValue) || Array.from(numberValue).length != 12) {
-        alertify.warning("Введіть номер мобільного телефону у форматі 38 000 000 00 00!");
+    if (!numberValue.match(regex)) {
+        alertify.warning("Неправильний формат мобільного телефону.");
         return false;
     }
     return true;
@@ -46,7 +49,7 @@ function CheckMail() {
         return true;
     }
     else {
-        alertify.warning("Некоректний email!");
+        alertify.warning("Некоректний email.");
         return false;
     }
 }
@@ -66,6 +69,9 @@ function IsNumber(value) {
 }
 
 function createOrder() {
+    if (!CheckForm()) {
+        return;
+    }
     var name = document.getElementById("clientName").value;
     var email = document.getElementById("clientEmail").value;
     var phoneNumber = document.getElementById("clientNumber").value;
@@ -88,6 +94,7 @@ function createOrder() {
     request.onload = function () {
         if (request.status == 201) {
             alertify.success('Success!');
+            document.getElementById('form__inner').reset();
         }
         else {
             alertify.error('Cannot create an order.');

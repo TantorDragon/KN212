@@ -14,7 +14,7 @@ function login(e) {
     xhr.onload = function () {
 
         if (xhr.status != 200) {
-            alert(xhr.status + ': ' + xhr.statusText);
+            alertify.error("Bad password or login.");
         } else {
             document.cookie = "token=" + JSON.parse(xhr.responseText).token + ";path=/";
             window.location.href = "orders.html";

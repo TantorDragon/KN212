@@ -261,7 +261,7 @@
     </div>
     <div class="form" id="form">
         <div class="container">
-            <form id="form__inner" action="#" onsubmit="CheckForm(); return false">
+            <form id="form__inner" onsubmit="createOrder(); return false" action="#">
                 <div class="input-fields">
                     <input id="clientName" type="text" name="fname" class="input" placeholder="Ім'я">
                     <input id="clientEmail" type="email" name="email" class="input" placeholder="E-mail">
@@ -278,7 +278,7 @@
                 </div>
                 <div class="msg">
                     <textarea id="orderDescription" placeholder="Повідомлення"></textarea>
-                    <input class="btn btn--orange form--btn" type="submit" value="Замовити" onclick="createOrder()" />
+                    <input class="btn btn--orange form--btn" type="submit" value="Замовити" />
                 </div>
             </form>
         </div>
