@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Bakery.Api.Services;
 using Bakery.Core.Models;
@@ -12,7 +10,6 @@ using Microsoft.Extensions.Logging;
 namespace Bakery.Api.Controllers
 {
     [ApiController]
-    [AllowAnonymous]
     [EnableCors("AllowAnyOrigin")]
     [Route("orders")]
     public class OrdersController : ControllerBase

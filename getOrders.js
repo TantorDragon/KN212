@@ -4,7 +4,7 @@
   request.open("GET", url);
   var jwtoken = getCookie("token");
   request.setRequestHeader("Content-type", "application/json");
-  request.setRequestHeader('Authorization', 'Bearer ' + jwtoken);
+  request.setRequestHeader('Authorization', "Bearer " + jwtoken);
   request.setRequestHeader("Access-Control-Allow-Origin", "*");
   request.send();
   request.onload = function () {

@@ -1,7 +1,6 @@
 ﻿using Bakery.Core.DbConnection.ModelConfigurations;
 using Bakery.Core.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Bakery.Core.DbConnection
 {

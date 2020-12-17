@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Bakery.Core.Models
+﻿namespace Bakery.Core.Models
 {
     public class User : Item
     {
